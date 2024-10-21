@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Резюме</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Подключение API Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
     <header>
         <div class="profile">
-            <!-- Место для фотографии -->
-            <img src="images/profile.jpg" alt="Фотография профиля" id="profile-photo">
+            <!-- Фото профиля -->
+            <img src="https://avatars.mds.yandex.net/i?id=9572a3d0c959154fb32925d1f461cde0c251a279-6996969-images-thumbs&n=13" alt="Фотография профиля" id="profile-photo">
             <h1 id="name">Иван Иванов</h1>
         </div>
         <div class="controls">
             <!-- Кнопки смены языка с иконками флагов -->
             <button id="language-toggle" aria-label="Сменить язык">
-                <img src="images/us.png" alt="EN" id="language-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" alt="RU" id="language-icon">
             </button>
             <button id="theme-toggle" aria-label="Сменить тему">🌙</button>
         </div>
@@ -25,27 +27,90 @@
 
     <section>
         <h2 id="section-about">Обо мне</h2>
-        <p id="about">
-            Я опытный веб-разработчик с навыками в HTML, CSS и JavaScript.
-        </p>
+        <p id="about">Я опытный веб-разработчик с навыками в HTML, CSS и JavaScript.</p>
     </section>
+    
+    <section>
+        <h2 id="section-experience">Опыт работы</h2>
+        <ul>
+            <li><strong id="job-title">Frontend Developer</strong> — <span id="company-current">Практики ОМП</span> <span class="date-range">(2024 - настоящее время)</span></li>
+            <li><strong id="job-title-previous">Junior Developer</strong> — <span id="company-previous">Практики ОМП</span> <span class="date-range">(2024 - настоящее время)</span></li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2 id="section-education">Образование</h2>
+        <ul>
+            <!-- Новый пункт для гимназии -->
+            <li><strong id="school">Гимназия №2 г.Салават</strong> <span id="school-dates">(2013 - 2024)</span></li>
+            <li><strong id="degree">Прикладной анализ данных и искусственный интеллект</strong> — <span id="university">НИУ ВШЭ Санкт-Петербург</span> <span class="date-range">(2024 - настоящее время)</span></li>
+        </ul>
+    </section>
+    
+    
+    <!-- Секция Мои достижения -->
+    <section>
+        <h2 id="section-achievements">Мои достижения</h2>
+        <ul>
+            <li id="achievement1">Закончил 11 классов с золотой медалью</li>
+            <li id="achievement2">Имеется VIP статус игрока на 1win</li>
+        </ul>
+    </section>
+    
 
-    <!-- Пример работы -->
+    <!-- Раздел "Мои работы" -->
     <section>
         <h2 id="section-portfolio">Мои работы</h2>
         <div class="portfolio-items">
             <div class="portfolio-item">
-                <img src="images/project1.jpg" alt="Проект 1">
-                <h3 id="project1-title">Проект 1</h3>
-                <p id="project1-description">Описание проекта 1.</p>
+                <!-- Гифка с проектом 1 и ссылкой -->
+                <a href="https://ivanessi10.github.io/cas/" target="_blank">
+                    <img src="https://media1.tenor.com/m/vh6UO80RFmYAAAAd/toilet-paper-slot-machine.gif" alt="Slot Machine">
+                </a>
+                <h3 id="project1-title">Slot Machine</h3>
+                <p id="project1-description">https://ivanessi10.github.io/cas/ (картинка кликабельна)</p>
+            </div>
+            <div class="portfolio-item">
+                <!-- Гифка с проектом 2 и ссылкой -->
+                <a href="https://ivanessi10.github.io/" target="_blank">
+                    <img src="https://media1.tenor.com/m/ZnpxgNXkVbEAAAAd/helldivers-automaton.gif" alt="CV Project">
+                </a>
+                <h3 id="project2-title">CV Project</h3>
+                <p id="project2-description">https://ivanessi10.github.io/ (картинка кликабельна)</p>
             </div>
         </div>
     </section>
 
+    <!-- Раздел Адрес с картой -->
+    <section>
+        <h2 id="section-address">Адрес</h2>
+        <p id="address">Санкт-Петербург, Россия</p>
+        <div id="map" style="width: 300px; height: 300px; margin-top: 10px;"></div>
+    </section>
+
     <footer>
-        <p id="contact">Контакты: email@example.com | +7 123 456-78-90</p>
+        <p id="contact">Контакты: ivanpetrusa4@gmail.com | +7 777 777-77-77</p>
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Скрипт для инициализации Яндекс.Карты -->
+    <script type="text/javascript">
+        ymaps.ready(init);
+
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [59.933102, 30.328040], // Координаты центра карты (Санкт-Петербург)
+                zoom: 18 // Увеличенный масштаб
+            });
+
+            // Добавляем метку на карту
+            var myPlacemark = new ymaps.Placemark([59.933102, 30.328040], {
+                balloonContent: 'Мое местоположение'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
 </body>
 </html>

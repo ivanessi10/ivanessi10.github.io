@@ -26,12 +26,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* Добавьте фоновое изображение здесь */
-    /* background-image: url('images/background.jpg');
-       background-size: cover;
-       background-repeat: no-repeat;
-       background-position: center;
-    */
 }
 
 header {
@@ -108,6 +102,15 @@ footer {
     width: calc(33% - 40px);
     box-sizing: border-box;
     text-align: center;
+}
+
+#section-achievements {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+#section-achievements ul li {
+    margin-bottom: 10px;
 }
 
 .portfolio-item img {

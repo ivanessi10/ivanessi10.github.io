@@ -1,0 +1,138 @@
+/* Переменные для светлой темы */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --header-background: #f0f0f0;
+    --button-background: #e0e0e0;
+    --button-text: #000000;
+    --section-background: #fafafa;
+    --footer-background: #f0f0f0;
+}
+
+/* Темная тема */
+.dark-theme {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --header-background: #1f1f1f;
+    --button-background: #333333;
+    --button-text: #ffffff;
+    --section-background: #1e1e1e;
+    --footer-background: #1f1f1f;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Добавьте фоновое изображение здесь */
+    /* background-image: url('images/background.jpg');
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+    */
+}
+
+header {
+    background-color: var(--header-background);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+#profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+}
+
+.controls button {
+    margin-left: 10px;
+    padding: 10px;
+    border: none;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.controls button:hover {
+    opacity: 0.8;
+}
+
+#language-icon {
+    width: 24px;
+    height: 24px;
+}
+
+section {
+    padding: 20px;
+    background-color: var(--section-background);
+}
+
+h1, h2 {
+    margin: 0 0 10px 0;
+}
+
+footer {
+    background-color: var(--footer-background);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.portfolio-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.portfolio-item {
+    background-color: var(--header-background);
+    padding: 15px;
+    border-radius: 8px;
+    width: calc(33% - 40px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .portfolio-item {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-item {
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls {
+        margin-top: 10px;
+    }
+}
